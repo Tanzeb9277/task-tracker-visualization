@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Tracker Visualization</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@1.0.1/dist/chartjs-chart-matrix.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+
+
+
+</head>
+<body>
+    <header class="main-header">
+        <h1>Welcome to the Task Tracker</h1>
+        <p>
+          Designed to improve efficiency, visibility, and decision-making by providing key insights into task progress, metrics, and overall performance.
+        </p>
+        <p class="created-by">
+          Created with dedication by <strong>Tanzeb Choudhury</strong>.
+        </p>
+      </header>
+      
+    
+      <main>
+        <!-- Introduction Section -->
+        <section id="about">
+            <div class="container">
+              <h2>About the Task Tracker</h2>
+              <p>
+                This task tracker was created to improve efficiency and visibility into tasks, their statuses, and related metrics. 
+                By leveraging <strong>Google Sheets App Scripts</strong> and <strong>Google APIs</strong>, it seamlessly integrates automation 
+                and dynamic data visualization for streamlined task management.
+              </p>
+              <div class="about-icons">
+                <a href="https://developers.google.com/apps-script" target="_blank" aria-label="Google Sheets App Scripts">
+                  <i class="fas fa-file-alt"></i> Google Sheets App Scripts
+                </a>
+                <a href="https://developers.google.com/apis-explorer" target="_blank" aria-label="Google APIs">
+                  <i class="fas fa-cloud"></i> Google APIs
+                </a>
+              </div>
+            </div>
+          </section>
+          
+
+  <section id="features">
+    <h2 data-aos="fade-up">Key Features</h2>
+  
+    <div class="feature" data-aos="fade-right">
+      <div class="feature-text">
+        <h3>Task Trends Over Time</h3>
+        <p>
+          Understand how your productivity evolves by tracking the number of tasks completed over time. Identify busy periods, seasonal trends, or dips in activity to optimize your workload management.
+        </p>
+      </div>
+      <div class="feature-graph">
+        <canvas id="taskTrendChart"></canvas>
+      </div>
+    </div>
+  
+    <div class="feature feature-reverse" data-aos="fade-left">
+      <div class="feature-graph">
+        <canvas id="handlingTimeChart"></canvas>
+      </div>
+      <div class="feature-text">
+        <h3>Average Handling Time</h3>
+        <p>
+          Evaluate the efficiency of task handling by measuring the average time spent on each task. Pinpoint areas for improvement and ensure tasks are completed promptly.
+        </p>
+      </div>
+    </div>
+  
+    <div class="feature" data-aos="fade-right">
+      <div class="feature-text">
+        <h3>Total Time Spent on Tasks</h3>
+        <p>
+          Gain visibility into the total time invested in tasks over a period. This metric helps you understand your workload and assess time allocation across different tasks.
+        </p>
+      </div>
+      <div class="feature-graph">
+        <canvas id="totalTimeChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section id="automation" class="feature-section" data-aos="fade-up">
+    <div class="content">
+      <h2>Features Powered by Automation</h2>
+      <p>
+        The task tracker leverages automation to streamline workflows and increase productivity:
+      </p>
+      <ul>
+        <li>Automated notifications for tasks.</li>
+        <li>Weekly summaries sent to users with task updates.</li>
+        <li>Google Calendar integration to sync task updates and meetings.</li>
+      </ul>
+      <p>
+        These features utilize Google Workspace APIs, such as the Gmail API for email notifications and the Calendar API for scheduling, to ensure seamless task management.
+      </p>
+    </div>
+    <div class="graphic">
+      <img src="assets/automation.jpg" alt="Automation Illustration" />
+    </div>
+  </section>
+
+  <section id="dynamic-content" class="feature-section" data-aos="fade-up">
+    <div class="content">
+      <h2>Dynamic Filtering and Interactive Visualizations</h2>
+      <p>
+        The task tracker offers interactive filtering options for visualizations, allowing you to:
+      </p>
+      <ul>
+        <li>Focus on individual user trends or view all users simultaneously.</li>
+        <li>Analyze data from specific months or across a selected time range.</li>
+      </ul>
+      <p>
+        These capabilities enable users to extract meaningful insights quickly, tailored to their specific needs.
+      </p>
+      <select id="userFilter" class="dropdown">
+        <option value="all">All Users</option>
+        <option value="Bryan">Bryan</option>
+        <option value="Toby">Toby</option>
+        <option value="John">John</option>
+        <option value="Average">Average</option>
+      </select>
+      <canvas id="interactiveTaskTrendChart"></canvas>
+    </div>
+  </section>
+
+  <section id="data-integrity" class="feature-section">
+    <div class="container text-center">
+      <h2 class="section-title">Data Integrity and Visualization</h2>
+      <div class="row align-items-center">
+        <!-- Text Content -->
+        <div class="col-md-6">
+          <p class="lead">
+            Accurate data handling is critical for actionable insights. This task tracker implements measures to ensure data integrity and security, including:
+          </p>
+          <ul class="data-points">
+            <li><strong>Data Validation:</strong> User inputs are verified to meet required formats and ranges.</li>
+            <li><strong>Error Handling:</strong> Automated checks flag anomalies or incomplete entries.</li>
+            <li><strong>Summary Reports:</strong> Daily and monthly summaries validate consistency across datasets.</li>
+          </ul>
+          <p>
+            These measures ensure reliable task monitoring and foster confidence in decision-making.
+          </p>
+        </div>
+  
+        <!-- Data Integrity Image -->
+        <div class="col-md-6">
+          <img
+            src="./assets/data-integrity.jpg"
+            alt="Data Integrity Representation"
+            class="img-fluid integrity-image"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="value-metrics">
+    <div class="container">
+      <h2 class="section-title">Value Metrics</h2>
+      <p class="lead">Key performance indicators to showcase productivity and efficiency.</p>
+      <div class="row metrics-row">
+        <!-- Total Tasks Completed -->
+        <div class="col-md-4 metric-box">
+          <div class="metric-content">
+            <h3 class="metric-value" id="total-tasks">0</h3>
+            <p>Total Tasks Completed</p>
+          </div>
+        </div>
+        <!-- Average Hours Spent -->
+        <div class="col-md-4 metric-box">
+          <div class="metric-content">
+            <h3 class="metric-value" id="avg-hours">0</h3>
+            <p>Average Hours Spent</p>
+          </div>
+        </div>
+        <!-- Efficiency Rating -->
+        <div class="col-md-4 metric-box">
+          <div class="metric-content">
+            <h3 class="metric-value" id="efficiency-rating">0%</h3>
+            <p>Efficiency Rating</p>
+          </div>
+        </div>
+      </div>
+      <!-- Chart -->
+      <canvas id="efficiency-chart" class="mt-4"></canvas>
+    </div>
+  </section>
+
+  <section id="migration-potential" class="features-section">
+    <div class="container">
+      <div class="feature-card" data-aos="fade-up">
+        <h2>Migration Potential</h2>
+        <p>
+          The modular design of the task tracker ensures its scalability and facilitates migration 
+          to commercial platforms, enhancing its adoption across different business needs. 
+          The existing infrastructure supports integrations with ERP systems, cloud-based platforms, 
+          and enterprise-level dashboards, making it future-ready for growing organizational demands.
+        </p>
+        <div class="image-container">
+          <img src="assets/migration-illustration.jpg" alt="Migration Potential Illustration" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="custom-metrics" class="features-section">
+    <div class="container">
+      <div class="feature-card" data-aos="fade-up">
+        <h2>Customizable Business Value Metrics</h2>
+        <p>
+          The tracker allows for the definition of custom metrics to match specific business goals, 
+          enabling tailored insights for various stakeholders. This flexibility ensures that businesses 
+          can adapt the tool to their unique requirements, driving informed decision-making and 
+          maximizing value.
+        </p>
+        <div class="image-container">
+          <img src="assets/custom-metrics.jpg" alt="Custom Metrics Illustration" />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+      <!-- Closing Section -->
+      <section id="closing" class="features-section">
+        <div class="container" data-aos="fade-up">
+          <h2>Why I Built This</h2>
+          <p>
+            Task management is at the heart of every successful team or business. I developed this task tracker to bridge gaps in visibility and to foster a culture of accountability and continuous improvement. By visualizing data in meaningful ways, we can not only track tasks but also uncover opportunities to optimize and grow.
+          </p>
+          <p>
+            Thank you for exploring this tool. It is my hope that it inspires better workflows, smarter decisions, and tangible results.
+          </p>
+          <p class="closing-statement">
+            <strong>Here’s to making every task count!</strong>
+          </p>
+        </div>
+      </section>
+    </main>
+  
+    <footer>
+      <p>© 2025 Task Tracker  | Built with passion and purpose.</p>
+      <div class="social-links">
+        <a href="https://github.com/Tanzeb9277" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://tanzeb9277.github.io/portfolio-page/" target="_blank" aria-label="Portfolio">
+          <i class="fas fa-globe"></i>
+        </a>
+      </div>
+    </footer>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>

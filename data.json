@@ -1,0 +1,115 @@
+{
+    "labels": ["September", "October", "November", "December"],
+    "userColors": [
+      "rgba(75, 192, 192, 0.2)",
+      "rgba(255, 99, 132, 0.2)",
+      "rgba(54, 162, 235, 0.2)",
+      "rgba(153, 102, 255, 0.2)"
+    ],
+    "userBorderColors": [
+      "rgba(75, 192, 192, 1)",
+      "rgba(255, 99, 132, 1)",
+      "rgba(54, 162, 235, 1)",
+      "rgba(153, 102, 255, 1)"
+    ],
+    "taskTrendData": {
+      "labels": ["September", "October", "November", "December"],
+      "datasets": [
+        {
+          "label": "Bryan",
+          "data": [200, 450, 700, 900],
+          "backgroundColor": "rgba(75, 192, 192, 0.2)",
+          "borderColor": "rgba(75, 192, 192, 1)",
+          "borderWidth": 1
+        },
+        {
+          "label": "Toby",
+          "data": [150, 500, 650, 800],
+          "backgroundColor": "rgba(255, 99, 132, 0.2)",
+          "borderColor": "rgba(255, 99, 132, 1)",
+          "borderWidth": 1
+        },
+        {
+          "label": "John",
+          "data": [300, 400, 600, 1000],
+          "backgroundColor": "rgba(54, 162, 235, 0.2)",
+          "borderColor": "rgba(54, 162, 235, 1)",
+          "borderWidth": 1
+        },
+        {
+          "label": "Average",
+          "data": [216, 450, 650, 900],
+          "backgroundColor": "rgba(153, 102, 255, 0.2)",
+          "borderColor": "rgba(153, 102, 255, 1)",
+          "borderWidth": 1
+        }
+      ]
+    },
+    "handlingTimeData": {
+      "labels": ["September", "October", "November", "December"],
+      "datasets": [
+        {
+          "label": "Bryan",
+          "data": [20, 22, 25, 20],
+          "backgroundColor": "rgba(75, 192, 192, 0.2)",
+          "borderColor": "rgba(75, 192, 192, 1)",
+          "borderWidth": 1
+        },
+        {
+          "label": "Toby",
+          "data": [25, 28, 24, 27],
+          "backgroundColor": "rgba(255, 99, 132, 0.2)",
+          "borderColor": "rgba(255, 99, 132, 1)",
+          "borderWidth": 1
+        },
+        {
+          "label": "John",
+          "data": [18, 21, 20, 19],
+          "backgroundColor": "rgba(54, 162, 235, 0.2)",
+          "borderColor": "rgba(54, 162, 235, 1)",
+          "borderWidth": 1
+        },
+        {
+          "label": "Average",
+          "data": [21, 24, 23, 22],
+          "backgroundColor": "rgba(153, 102, 255, 0.2)",
+          "borderColor": "rgba(153, 102, 255, 1)",
+          "borderWidth": 1
+        }
+      ]
+    },
+    "totalTimeData": {
+      "labels": ["September", "October", "November", "December"],
+      "datasets": [
+        {
+          "label": "Bryan",
+          "data": [120, 150, 180, 170],
+          "backgroundColor": "rgba(75, 192, 192, 0.2)",
+          "borderColor": "rgba(75, 192, 192, 1)",
+          "borderWidth": 1
+        },
+        {
+          "label": "Toby",
+          "data": [140, 160, 190, 180],
+          "backgroundColor": "rgba(255, 99, 132, 0.2)",
+          "borderColor": "rgba(255, 99, 132, 1)",
+          "borderWidth": 1
+        },
+        {
+          "label": "John",
+          "data": [130, 155, 170, 160],
+          "backgroundColor": "rgba(54, 162, 235, 0.2)",
+          "borderColor": "rgba(54, 162, 235, 1)",
+          "borderWidth": 1
+        },
+        {
+          "label": "Average",
+          "data": [130, 155, 180, 170],
+          "backgroundColor": "rgba(153, 102, 255, 0.2)",
+          "borderColor": "rgba(153, 102, 255, 1)",
+          "borderWidth": 1
+        }
+      ]
+    }
+  }
+  
