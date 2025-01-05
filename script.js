@@ -147,6 +147,62 @@ AOS.init({
       );
 
 
+// Function to create a pie chart for a specific month
+function createPieChart(canvasId, monthIndex) {
+  const canvas = document.getElementById(canvasId);
+  if (canvas) {
+    // Calculate total tasks for each user for the given month
+    const totalTasksByUserForMonth = data.taskTrendData.datasets
+      .filter((dataset) => dataset.label !== 'Average') // Exclude "Average"
+      .map((dataset) => dataset.data[monthIndex]); // Get data for the specific month
+
+    // Create the pie chart
+    new Chart(canvas, {
+      type: 'pie', // Use 'pie' or 'doughnut'
+      data: {
+        labels: data.taskTrendData.datasets
+          .filter((dataset) => dataset.label !== 'Average')
+          .map((dataset) => dataset.label), // ["User 1", "User 2", "User 3"]
+        datasets: [
+          {
+            data: totalTasksByUserForMonth, // [200, 150, 300] for example
+            backgroundColor: ['rgba(75, 192, 192, 0.6)', 'rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)'],
+            borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: true,
+            position: 'top',
+          },
+          tooltip: {
+            callbacks: {
+              label: (context) => `${context.label}: ${context.raw} tasks`,
+            },
+          },
+        },
+      },
+    });
+  } else {
+    console.error(`Canvas with ID "${canvasId}" not found.`);
+  }
+}
+
+// Create pie charts for each month
+createPieChart('pieChartSeptember', 0); // September (index 0)
+createPieChart('pieChartOctober', 1);  // October (index 1)
+createPieChart('pieChartNovember', 2); // November (index 2)
+createPieChart('pieChartDecember', 3); // December (index 3)
+
+
+
+
+
+
 
 
 

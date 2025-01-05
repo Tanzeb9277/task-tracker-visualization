@@ -357,6 +357,39 @@ body {
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
+
+
+  .charts-container {
+    display: flex;
+    justify-content: space-between; /* Distribute charts evenly */
+    flex-wrap: nowrap; /* Prevent wrapping to the next line */
+    gap: 20px; /* Add space between the charts */
+    overflow-x: auto; /* Allow horizontal scrolling on smaller screens */
+    padding: 10px;
+  }
+  
+  .chart-item {
+    flex: 1 1 25%; /* Make each chart take up 25% of the row */
+    max-width: 300px; /* Prevent charts from growing too large */
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chart-item canvas {
+    max-width: 250px;
+    height: 250px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 1200px) {
+    .chart-item {
+      flex: 1 1 auto; /* Allow charts to shrink slightly on smaller screens */
+    }
+  }
+  
   
 
   #custom-metrics {
