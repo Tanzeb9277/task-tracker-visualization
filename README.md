@@ -92,7 +92,7 @@ This project is a **Task Tracker Visualization Tool** designed to provide action
 
 ## About the Developer
 
-This project was developed by **John Smith** to demonstrate the power of task visualization in improving efficiency and decision-making. The tool highlights advanced integration of Google technologies and web development skills.
+This project was developed by Tanzeb Choudhury to demonstrate the power of task visualization in improving efficiency and decision-making. The tool highlights advanced integration of Google technologies and web development skills.
 
 ## License
 
@@ -100,5 +100,4 @@ This project is licensed under the MIT License. Feel free to use and adapt it fo
 
 ---
 
-For any questions or suggestions, please contact [John Smith](mailto:your-email@example.com).
 
